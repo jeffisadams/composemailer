@@ -1,5 +1,5 @@
 import { App } from './app/index';
-let [a, b, manifest, origin, ...dest] = process.argv
+let [a, b, manifest, ...dest] = process.argv
 
-let app = new App(manifest, origin, dest);
+let app = new App(manifest, dest);
 app.bootstrap();

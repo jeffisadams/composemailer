@@ -21,4 +21,17 @@ export class MailService {
       }
     });
   }
+
+  async sendMail(
+    to: string[],
+    subject: string,
+    html: string
+  ): Promise<nodemailer.SentMessageInfo> {
+    return await this.transporter.sendMail({
+      from: this.defaultOrigin,
+      to:to,
+      subject: subject,
+      html: html
+    });
+  }
 }

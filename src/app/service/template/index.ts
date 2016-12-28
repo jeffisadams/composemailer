@@ -1,47 +1,39 @@
-import * as TemplateCompiler from "email-templates";
+import { BaseTemplate } from './basetemplate/index';
+import { ParagraphTemplate } from './paragraph/index';
+import { ListTemplate } from './list/index';
+import { SpotlightTemplate } from './spotlight/index';
+import { VTableTemplate } from './vtable/index';
+import { TitleTemplate } from './title/index';
+import { AddressTemplate } from './address/index';
+import { HtmlParagraphTemplate } from './htmlparagraph/index';
 
-export interface Section {
-  html: string,
-  text: string
-}
-
-export class TemplateService {
-  private templateBuilder: (name: string, params: Object, callback: ((err:any, html: string, text: string) => void)) => void;
-
-  templateDir: string;
-
-  constructor() {
-    // Build the template directory
-    this.templateDir = __dirname.split('src').shift() + 'templates/';
-  }
-
-  async loadTemplateBuilder(templateDir: string = this.templateDir): Promise<(name: string, params: Object, callback: ((err:any, html: string, text: string) => void)) => void> {
-    try {
-      if(this.templateBuilder == null) {
-        let builder = await new Promise((resolve, reject) => {
-          TemplateCompiler(this.templateDir, (err, template: any) => {
-            if(err) reject(err);
-            resolve(template as (name: string, params: Object, callback: ((err:any, html: string, text: string) => void)) => void);
-          });
-        });
-        this.templateBuilder = builder as (name: string, params: Object, callback: ((err:any, html: string, text: string) => void)) => void;
-      }
-      return this.templateBuilder
-    } catch (err) {
-      throw new Error(err);
+export class TemplateFactory {
+  // Factory Method
+  static getTemplateClass(data): BaseTemplate {
+    let templateClass;
+    switch(data.key) {
+      case 'paragraph':
+        templateClass = new ParagraphTemplate(data);
+        break;
+      case 'htmlparagraph':
+        templateClass = new HtmlParagraphTemplate(data);
+        break;
+      case 'list':
+        templateClass = new ListTemplate(data);
+        break;
+      case 'spotlight':
+        templateClass = new SpotlightTemplate(data);
+        break;
+      case 'address':
+        templateClass = new AddressTemplate(data);
+        break;
+      case 'title':
+        templateClass = new TitleTemplate(data);
+        break;
+      case 'vtable':
+        templateClass = new VTableTemplate(data);
+        break;
     }
-  }
-
-  async getTemplate(name: string, params: Object): Promise<{ html:string, text:string }> {
-    let builder = await this.loadTemplateBuilder();
-
-    let template =  await new Promise((resolve, reject) => {
-      this.templateBuilder(name, params, function(err, html, text) {
-        if(err) { reject(err); }
-        resolve({ text: text, html: html });
-      });
-    });
-
-    return template as Section;
+    return templateClass;
   }
 }

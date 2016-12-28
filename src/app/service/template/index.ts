@@ -6,12 +6,16 @@ import { VTableTemplate } from './vtable/index';
 import { TitleTemplate } from './title/index';
 import { AddressTemplate } from './address/index';
 import { HtmlParagraphTemplate } from './htmlparagraph/index';
+import { ActivityTemplate } from './activity/index';
 
 export class TemplateFactory {
   // Factory Method
   static getTemplateClass(data): BaseTemplate {
     let templateClass;
     switch(data.key) {
+      case 'activity':
+        templateClass = new ActivityTemplate(data);
+        break;
       case 'paragraph':
         templateClass = new ParagraphTemplate(data);
         break;

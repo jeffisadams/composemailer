@@ -1,0 +1,40 @@
+<div class="container">
+  <div style='padding-left:10%;padding-right:10%;background-color: #fff9e6;border-width: 5px;background-clip:content-box;box-shadow: inset 0 0 0 0px;'>
+    <div style='padding-left: 5%;padding-right: 5%;padding-bottom: 50px;'>
+
+    <h1>DC 3rd Ward Relief Society E-newsletter for {{ date }}</h1>
+
+    <h2>In this issue</h2>
+
+    <ul class="table-of-contents">
+      {{#each sections}}
+      <li><a href="#{{this.name}}_{{this.order}}">{{this.title}}</a></li>
+      {{/each}}
+      <li><a href="#RSInfo">Contact Information</a></li>
+    </ul>
+
+    <hr />
+
+    {{#each sections}}
+      {{{this.html}}}
+    {{/each}}
+
+
+    <h2 id='RSInfo'>Relief Society Presidency Contact Information</h2>
+      <ul class="contact-list">
+        <li>Dona Faris-Jenkins, President (202-329-3831)</li>
+        <li>Annie Carter, First Counselor (801-419-1789)</li>
+        <li>Megan Williams, Second Counselor (661-316-9213)</li>
+        <li>Toby Christensen, Third Counselor and Compassionate Service Leader (303-257-3157)</li>
+        <li>Lili Claude, Secretary (202-294-4109)</li>
+        <li>Michele Bendall, Assistant Secretary (503-855-9214)</li>
+        <li>Damaris Lozada, Assistant to the Relief Society President (202-553-5195)</li>
+        <li>Melissa Robel, Visiting Teaching Coordinator (850-228-6421)</li>
+      </ul>
+
+      <p style="font-size: small;">You are receiving this message because you are subscribed to the Google Groups "DC 3rd Ward Relief Society" group.
+      To unsubscribe from this group and stop receiving emails from it, send an email to <a href="mailto:dc3rdreliefsociety+unsubscribe@googlgroups.com">dc3rdreliefsociety+unsubscribe@googlgroups.com</a>. To post to this group, send email to <a href="dc3rdreliefsociety@googlegroups.com">dc3rdreliefsociety@googlegroups.com</a>. For more options, visit <a href='https://groups.google.com/d/optout'>https://groups.google.com/d/optout</a>.</p>
+
+    </div>
+  </div>
+</div>

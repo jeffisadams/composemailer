@@ -1,0 +1,10 @@
+<!--Start Paragraph Section-->
+<div id="{{name}}_{{order}}">
+  <h2 class="title">{{title}}</h2>
+  {{#if image}}<img alt="Embedded Image" src="{{image}}"/>{{/if}}
+
+  {{#each paragraphs}}
+    <p>{{this}}</p>
+  {{/each}}
+</div>
+<!--End Paragraph Section-->

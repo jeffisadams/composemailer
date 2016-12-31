@@ -17,7 +17,10 @@ export class TableTemplate extends BaseTemplate {
     super(row);
     this.rows = [];
 
-    this.rawArgs.forEach((arg) => {
+    
+    this.rawArgs
+    .filter((arg) => arg)
+    .forEach((arg) => {
       this.rows.push(arg.split('|'));
     });
   }

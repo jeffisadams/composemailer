@@ -1,8 +1,8 @@
 {
   "mail": {
-    "user": "",
-    "pass": "",
+    "user": "kgiantsosadams@gmail.com",
+    "pass": "Bodega4four",
     "smtpHost": "smtp.gmail.com",
-    "origin": ""
+    "origin": "DC3 Newsletter <kgiantsosadams@gmail.com>"
   }
 }

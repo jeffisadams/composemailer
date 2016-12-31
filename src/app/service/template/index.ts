@@ -2,7 +2,6 @@ import { BaseTemplate } from './basetemplate/index';
 import { ParagraphTemplate } from './paragraph/index';
 import { ListTemplate } from './list/index';
 import { SpotlightTemplate } from './spotlight/index';
-import { VTableTemplate } from './vtable/index';
 import { TitleTemplate } from './title/index';
 import { AddressTemplate } from './address/index';
 import { HtmlParagraphTemplate } from './htmlparagraph/index';
@@ -37,9 +36,6 @@ export class TemplateFactory {
         break;
       case 'title':
         templateClass = new TitleTemplate(data);
-        break;
-      case 'vtable':
-        templateClass = new VTableTemplate(data);
         break;
     }
     return templateClass;

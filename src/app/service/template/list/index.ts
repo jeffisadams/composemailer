@@ -18,20 +18,22 @@ export class ListTemplate extends BaseTemplate {
 
     if(row['image']) { this.image = row['image']; }
 
-    this.list = this.rawArgs.map(arg => {
-      if(arg.indexOf('|') != -1) {
-        let vals = arg.split('|');
-        return {
-          key: vals[0],
-          value: vals[1]
+    this.list = this.rawArgs
+      .filter((arg) => arg)
+      .map(arg => {
+        if(arg.indexOf('|') != -1) {
+          let vals = arg.split('|');
+          return {
+            key: vals[0],
+            value: vals[1]
+          }
         }
-      }
-      else {
-        return {
-          value: arg
+        else {
+          return {
+            value: arg
+          }
         }
-      }
-    });
+      });
   }
 
   getParams(): ListParams {

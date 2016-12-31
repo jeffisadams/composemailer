@@ -7,6 +7,7 @@ import { TitleTemplate } from './title/index';
 import { AddressTemplate } from './address/index';
 import { HtmlParagraphTemplate } from './htmlparagraph/index';
 import { ActivityTemplate } from './activity/index';
+import { TableTemplate } from './table/index';
 
 export class TemplateFactory {
   // Factory Method
@@ -15,6 +16,9 @@ export class TemplateFactory {
     switch(data.key) {
       case 'activity':
         templateClass = new ActivityTemplate(data);
+        break;
+      case 'table':
+        templateClass = new TableTemplate(data);
         break;
       case 'paragraph':
         templateClass = new ParagraphTemplate(data);

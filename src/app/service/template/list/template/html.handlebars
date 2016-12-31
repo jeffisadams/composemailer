@@ -6,7 +6,11 @@
   <ul>
   {{#each list}}
     <li>
-      {{#if this.key}}<span class="key">{{this.key}}</span>{{/if}}
+      {{#if this.key}}
+        <span class="key">{{this.key}}</span>
+      {{else}} 
+        <span>&nbsp;</span>
+      {{/if}}
       <span class="value">{{this.value}}</span>
     </li>
   {{/each}}

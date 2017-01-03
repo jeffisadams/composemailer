@@ -21,7 +21,7 @@ export class App {
 
     let mailResults = await this.mailService.sendMail(
       this.destEmails,
-      "Testing Newsletter of News",
+      "DC Third Ward Newsletter",
       template.html
     );
 

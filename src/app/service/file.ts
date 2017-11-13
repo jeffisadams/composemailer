@@ -1,9 +1,9 @@
-import * as bp from 'babyparse';
+import * as PapaParse from 'papaparse';
 import { BaseTemplate } from './template/basetemplate/';
 import { TemplateFactory } from './template/index';
 import { ParentTemplate } from './template/parenttemplate/index';
 import { CompiledTemplate } from './template/basetemplate/index';
-
+import { readFileSync } from 'fs';
 
 export class FileService {
   sections: BaseTemplate[] = [];
@@ -13,7 +13,8 @@ export class FileService {
 
   async loadFile(path: string) {
     try {
-      let contents: BabyParse.ParseResult = bp.parseFiles(path, {
+      let content = readFileSync(path, 'utf8');
+      let contents: PapaParse.ParseResult = PapaParse.parse(content, {
         header: true
       });
 

@@ -1,8 +1,0 @@
-{
-  "mail": {
-    "user": "",
-    "pass": "",
-    "smtpHost": "smtp.gmail.com",
-    "origin": "DC Third Ward Newsletter <kgiantsosadams@gmail.com>"
-  }
-}

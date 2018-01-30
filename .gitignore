@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+.DS_Store
+*.csv
+
 config/*
 
 # Runtime data
